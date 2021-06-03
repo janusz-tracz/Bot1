@@ -82,7 +82,8 @@ counter = 0
 
 
 class BotController:
-    def __init__(self):
+    def __init__(self, name):
+        self.name = name
         self.last_observed_mist_vec: coordinates.Coords = None
         self.weapon = "knife"
         self.weapons_knowledge = {}
@@ -314,7 +315,11 @@ class BotController:
 
     @property
     def name(self) -> str:
-        return 'InnyController'
+        return self.__name
+    
+    @name.setter
+    def name(self, name) -> None:
+        self.__name = name
 
     @property
     def preferred_tabard(self) -> characters.Tabard:
@@ -517,5 +522,5 @@ class BotController:
 
 
 POTENTIAL_CONTROLLERS = [
-    BotController(),
+    BotController("NameemaN"),
 ]
